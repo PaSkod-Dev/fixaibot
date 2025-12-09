@@ -28,7 +28,7 @@ FIXƆ est une application web progressive qui fournit une assistance technique i
 1. Cloner le dépôt :
 ```bash
 git clone https://github.com/PaSkod-Dev/fixaibot.git
-cd FixoBot
+cd fixaibot
 ```
 
 2. Ouvrir avec un serveur local :
@@ -60,27 +60,26 @@ http://localhost:8080
 ## Structure du projet
 
 ```
-FixoBot/
-├── index.html                    # Page de redirection (racine)
-└── fixaibot/
-    ├── index.html                # Page de redirection (intermédiaire)
-    ├── README.md                 # Documentation principale
-    ├── DEVELOPER.md              # Guide développeur
-    ├── LICENSE                   # Licence MIT
-    └── fixo-frontend/
-        ├── index.html            # Application principale
-        ├── styles/               # Fichiers CSS
-        │   ├── variables.css
-        │   ├── base.css
-        │   ├── markdown.css
-        │   └── help.css
-        ├── scripts/              # Code JavaScript
-        │   ├── app.js
-        │   ├── components/       # Composants UI
-        │   ├── services/         # Logique métier
-        │   └── utils/            # Utilitaires
-        ├── data/                 # Base de connaissances
-        └── assets/               # Images et ressources
+fixaibot/                         # Dépôt Git (racine)
+├── index.html                    # Page de redirection
+├── README.md                     # Documentation principale
+├── DEVELOPER.md                  # Guide développeur
+├── LICENSE                       # Licence MIT
+├── .gitignore                    # Fichiers ignorés
+└── fixo-frontend/
+    ├── index.html                # Application principale
+    ├── styles/                   # Fichiers CSS
+    │   ├── variables.css
+    │   ├── base.css
+    │   ├── markdown.css
+    │   └── help.css
+    ├── scripts/                  # Code JavaScript
+    │   ├── app.js
+    │   ├── components/           # Composants UI
+    │   ├── services/             # Logique métier
+    │   └── utils/                # Utilitaires
+    ├── data/                     # Base de connaissances
+    └── assets/                   # Images et ressources
 ```
 
 ## Technologies utilisées

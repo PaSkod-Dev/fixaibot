@@ -15,44 +15,43 @@ FIXƆ suit une architecture modulaire basée sur des composants JavaScript vanil
 ### Structure détaillée
 
 ```
-FixoBot/
-├── index.html                    # Redirection racine → fixaibot/
-└── fixaibot/
-    ├── index.html                # Redirection → fixo-frontend/
-    ├── README.md                 # Documentation utilisateur
-    ├── DEVELOPER.md              # Ce fichier
-    ├── LICENSE                   # Licence MIT
-    ├── build-root.js             # Script de build (optionnel)
-    └── fixo-frontend/
-        ├── index.html            # Application principale
-        ├── scripts/
-        │   ├── app.js            # Point d'entrée, initialisation
-        │   ├── components/
-        │   │   ├── Chat.js       # Interface de chat
-        │   │   ├── Settings.js   # Panneau de paramètres
-        │   │   └── Help.js       # Centre d'aide
-        │   ├── services/
-        │   │   ├── mode-lite.js  # Base de connaissances locale
-        │   │   ├── mode-core.js  # Intégration API Groq
-        │   │   └── mode-pro.js   # Fonctionnalités avancées
-        │   └── utils/
-        │       ├── storage.js    # Gestion localStorage
-        │       ├── markdown.js   # Parsing Markdown
-        │       ├── constants.js  # Constantes globales
-        │       └── dom.js        # Manipulation DOM
-        ├── styles/
-        │   ├── variables.css     # Variables CSS
-        │   ├── base.css          # Styles de base
-        │   ├── components.css    # Styles des composants
-        │   ├── markdown.css      # Styles Markdown
-        │   ├── help.css          # Styles centre d'aide
-        │   └── themes/
-        │       ├── light.css     # Thème clair
-        │       └── dark.css      # Thème sombre
-        ├── data/
-        │   └── knowledge-base.json  # Base de connaissances
-        └── assets/
-            └── images/           # Ressources graphiques
+fixaibot/                         # Dépôt Git (racine)
+├── index.html                    # Redirection → fixo-frontend/
+├── README.md                     # Documentation utilisateur
+├── DEVELOPER.md                  # Ce fichier
+├── LICENSE                       # Licence MIT
+├── .gitignore                    # Fichiers ignorés
+├── build-root.js                 # Script de build (optionnel)
+└── fixo-frontend/
+    ├── index.html                # Application principale
+    ├── scripts/
+    │   ├── app.js                # Point d'entrée, initialisation
+    │   ├── components/
+    │   │   ├── Chat.js           # Interface de chat
+    │   │   ├── Settings.js       # Panneau de paramètres
+    │   │   └── Help.js           # Centre d'aide
+    │   ├── services/
+    │   │   ├── mode-lite.js      # Base de connaissances locale
+    │   │   ├── mode-core.js      # Intégration API Groq
+    │   │   └── mode-pro.js       # Fonctionnalités avancées
+    │   └── utils/
+    │       ├── storage.js        # Gestion localStorage
+    │       ├── markdown.js       # Parsing Markdown
+    │       ├── constants.js      # Constantes globales
+    │       └── dom.js            # Manipulation DOM
+    ├── styles/
+    │   ├── variables.css         # Variables CSS
+    │   ├── base.css              # Styles de base
+    │   ├── components.css        # Styles des composants
+    │   ├── markdown.css          # Styles Markdown
+    │   ├── help.css              # Styles centre d'aide
+    │   └── themes/
+    │       ├── light.css         # Thème clair
+    │       └── dark.css          # Thème sombre
+    ├── data/
+    │   └── knowledge-base.json   # Base de connaissances
+    └── assets/
+        └── images/               # Ressources graphiques
 ```
 
 ## Composants principaux
@@ -283,7 +282,7 @@ Aucun build nécessaire, le projet est prêt pour le déploiement direct.
 2. Activer GitHub Pages dans Settings → Pages → Source: Deploy from branch `main`
 3. L'URL sera : `https://PaSkod-Dev.github.io/fixaibot/`
 
-**Note** : Le fichier `index.html` à la racine redirige automatiquement vers `fixaibot/index.html`, qui lui-même redirige vers `fixaibot/fixo-frontend/index.html`
+**Note** : Le fichier `index.html` à la racine du dépôt redirige automatiquement vers `fixo-frontend/index.html` (l'application principale)
 
 ### Variables d'environnement
 

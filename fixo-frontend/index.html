@@ -778,53 +778,332 @@
     <!-- Application principale -->
     <script type="module" src="scripts/app.js"></script>
 
-    <!-- Indicateur de chargement -->
-    <div
-      id="loader-app"
-      style="
+    <!-- Indicateur de chargement Premium -->
+    <div id="loader-app" class="loader-premium">
+      <div class="loader-premium__bg"></div>
+
+      <div class="loader-premium__content">
+        <div class="loader-premium__logo-container">
+          <div class="loader-premium__rings">
+            <div class="loader-premium__ring loader-premium__ring--1"></div>
+            <div class="loader-premium__ring loader-premium__ring--2"></div>
+            <div class="loader-premium__ring loader-premium__ring--3"></div>
+          </div>
+          <div class="loader-premium__logo">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
+              <path d="M12 8V4H8" />
+              <rect width="16" height="12" x="4" y="8" rx="2" />
+              <path d="M2 14h2" />
+              <path d="M20 14h2" />
+              <path d="M15 13v2" />
+              <path d="M9 13v2" />
+            </svg>
+          </div>
+        </div>
+
+        <h2 class="loader-premium__title">
+          FIX<span class="loader-premium__accent">Ɔ</span>
+        </h2>
+
+        <div class="loader-premium__bar">
+          <div class="loader-premium__bar-fill"></div>
+        </div>
+
+        <p id="loader-status" class="loader-premium__status">
+          Initialisation...
+        </p>
+
+        <div class="loader-premium__dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .loader-premium {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: var(--couleur-fond);
+        z-index: 9999;
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 9999;
-      ">
-      <div style="text-align: center">
-        <div
-          style="
-            width: 40px;
-            height: 40px;
-            border: 4px solid #edf2f7;
-            border-top-color: #d4af37;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto 1rem;
-          "></div>
-        <p style="color: #718096; font-family: Arial, sans-serif">
-          Chargement de FIXƆ...
-        </p>
-        <p
-          id="loader-status"
-          style="
-            color: #a0aec0;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            font-family: Arial, sans-serif;
-          "></p>
-      </div>
-    </div>
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
 
-    <style>
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
+      .loader-premium__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          #1a202c 0%,
+          #2d3748 50%,
+          #1a202c 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientMove 15s ease infinite;
+      }
+
+      @keyframes gradientMove {
+        0%,
+        100% {
+          background-position: 0% 50%;
         }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .loader-premium__content {
+        position: relative;
+        text-align: center;
+        z-index: 1;
+      }
+
+      .loader-premium__logo-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+      }
+
+      .loader-premium__rings {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .loader-premium__ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-top-color: #f59e0b;
+        animation: spin 2s linear infinite;
+      }
+
+      .loader-premium__ring--1 {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+        left: -60px;
+        border-width: 3px;
+        animation-duration: 2s;
+      }
+
+      .loader-premium__ring--2 {
+        width: 90px;
+        height: 90px;
+        top: -45px;
+        left: -45px;
+        border-width: 2px;
+        border-top-color: #fbbf24;
+        animation-duration: 1.5s;
+        animation-direction: reverse;
+      }
+
+      .loader-premium__ring--3 {
+        width: 60px;
+        height: 60px;
+        top: -30px;
+        left: -30px;
+        border-width: 2px;
+        border-top-color: #fcd34d;
+        animation-duration: 1s;
+      }
+
+      @keyframes spin {
         to {
           transform: rotate(360deg);
+        }
+      }
+
+      .loader-premium__logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f59e0b, #fbbf24);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4);
+        animation: logoFloat 3s ease-in-out infinite;
+      }
+
+      .loader-premium__logo svg {
+        color: #1a202c;
+      }
+
+      @keyframes logoFloat {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) translateY(0px);
+        }
+        50% {
+          transform: translate(-50%, -50%) translateY(-10px);
+        }
+      }
+
+      .loader-premium__title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #e2e8f0;
+        margin: 0 0 2rem 0;
+        letter-spacing: -1px;
+        animation: titleGlow 2s ease-in-out infinite;
+      }
+
+      .loader-premium__accent {
+        color: #f59e0b;
+        text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+      }
+
+      @keyframes titleGlow {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .loader-premium__bar {
+        width: 280px;
+        height: 4px;
+        background: rgba(226, 232, 240, 0.1);
+        border-radius: 2px;
+        margin: 0 auto 1.5rem;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .loader-premium__bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+        background-size: 200% 100%;
+        border-radius: 2px;
+        animation: barFill 2s ease-in-out infinite,
+          barShimmer 1.5s linear infinite;
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      }
+
+      @keyframes barFill {
+        0%,
+        100% {
+          width: 20%;
+          transform: translateX(0);
+        }
+        50% {
+          width: 80%;
+          transform: translateX(100%);
+        }
+      }
+
+      @keyframes barShimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+
+      .loader-premium__status {
+        color: #cbd5e1;
+        font-size: 0.875rem;
+        margin: 0 0 1rem 0;
+        font-weight: 500;
+        min-height: 21px;
+      }
+
+      .loader-premium__dots {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .loader-premium__dots span {
+        width: 8px;
+        height: 8px;
+        background: #f59e0b;
+        border-radius: 50%;
+        animation: dotBounce 1.4s infinite ease-in-out both;
+      }
+
+      .loader-premium__dots span:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+
+      .loader-premium__dots span:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+
+      @keyframes dotBounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0.8);
+          opacity: 0.5;
+        }
+        40% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .loader-premium__logo-container {
+          width: 100px;
+          height: 100px;
+        }
+
+        .loader-premium__ring--1 {
+          width: 100px;
+          height: 100px;
+          top: -50px;
+          left: -50px;
+        }
+
+        .loader-premium__ring--2 {
+          width: 75px;
+          height: 75px;
+          top: -37.5px;
+          left: -37.5px;
+        }
+
+        .loader-premium__ring--3 {
+          width: 50px;
+          height: 50px;
+          top: -25px;
+          left: -25px;
+        }
+
+        .loader-premium__title {
+          font-size: 2rem;
+        }
+
+        .loader-premium__bar {
+          width: 220px;
         }
       }
     </style>

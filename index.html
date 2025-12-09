@@ -31,7 +31,6 @@
         position: relative;
       }
 
-      /* Particules en arrière-plan */
       .particles {
         position: absolute;
         width: 100%;
@@ -67,7 +66,6 @@
         }
       }
 
-      /* Container principal */
       .container {
         text-align: center;
         padding: 3rem;
@@ -95,7 +93,6 @@
         }
       }
 
-      /* Logo animé */
       .logo-container {
         position: relative;
         margin-bottom: 2rem;
@@ -116,7 +113,6 @@
         background-clip: text;
         animation: gradientShift 3s ease infinite, pulse 2s ease-in-out infinite;
         letter-spacing: -2px;
-        text-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
       }
 
       @keyframes gradientShift {
@@ -139,7 +135,6 @@
         }
       }
 
-      /* Cercle lumineux derrière le logo */
       .glow {
         position: absolute;
         top: 50%;
@@ -168,7 +163,6 @@
         }
       }
 
-      /* Titre */
       .title {
         font-size: 1.5rem;
         color: #e2e8f0;
@@ -183,7 +177,6 @@
         font-weight: 400;
       }
 
-      /* Barre de progression */
       .progress-container {
         width: 100%;
         height: 6px;
@@ -221,7 +214,6 @@
         }
       }
 
-      /* Message de statut */
       .status {
         font-size: 0.875rem;
         color: #cbd5e1;
@@ -250,7 +242,6 @@
         }
       }
 
-      /* Spinner */
       .spinner {
         width: 60px;
         height: 60px;
@@ -289,7 +280,6 @@
         }
       }
 
-      /* Lien manuel */
       .manual-link {
         margin-top: 2rem;
         padding-top: 2rem;
@@ -321,7 +311,6 @@
         transform: translateX(5px);
       }
 
-      /* Responsive */
       @media (max-width: 640px) {
         .container {
           padding: 2rem 1.5rem;
@@ -342,10 +331,8 @@
     </style>
   </head>
   <body>
-    <!-- Particules animées -->
     <div class="particles" id="particles"></div>
 
-    <!-- Container principal -->
     <div class="container">
       <div class="logo-container">
         <div class="glow"></div>
@@ -374,7 +361,6 @@
     </div>
 
     <script>
-      // Créer des particules animées
       const particlesContainer = document.getElementById("particles");
       for (let i = 0; i < 30; i++) {
         const particle = document.createElement("div");
@@ -385,7 +371,6 @@
         particlesContainer.appendChild(particle);
       }
 
-      // Simulation de chargement avec messages
       const statusText = document.getElementById("status-text");
       const messages = [
         "Initialisation en cours",
@@ -405,12 +390,10 @@
         }
       }, 500);
 
-      // Redirection après 2 secondes
       setTimeout(() => {
         window.location.replace("./fixo-frontend/index.html");
       }, 2000);
 
-      // Fallback pour navigateurs sans JavaScript
       if (!window.location.replace) {
         window.location.href = "./fixo-frontend/index.html";
       }
