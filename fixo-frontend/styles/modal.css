@@ -441,6 +441,27 @@
 [data-theme="dark"] .parametre-input {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.1);
+    color: var(--dark-couleur-texte);
+}
+
+[data-theme="dark"] .parametre-select option {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: var(--espace-2);
+}
+
+[data-theme="dark"] .parametre-select option:hover,
+[data-theme="dark"] .parametre-select option:focus {
+    background: #334155;
+}
+
+[data-theme="dark"] .parametre-select option:checked {
+    background: #475569;
+    font-weight: var(--poids-semibold);
+}
+
+[data-theme="dark"] .parametre-input::placeholder {
+    color: rgba(148, 163, 184, 0.7);
 }
 
 /* ───────────────────────────────────────────────────────────────────────────
