@@ -1,6 +1,6 @@
 # FIXƆ - Assistant de Dépannage Informatique
 
-Assistant intelligent de support technique accessible 24/7, conçu pour les universités africaines.
+Assistant intelligent de support technique accessible 24/7, conçu pour les universités.
 
 ## Description
 
