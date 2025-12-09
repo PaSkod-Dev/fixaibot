@@ -117,7 +117,7 @@ export function setModeActif(mode) {
  * @returns {string} Thème actif ('light' ou 'dark')
  */
 export function getTheme() {
-  return recuperer('theme', 'light');
+  return recuperer('theme', 'dark');
 }
 
 /**
