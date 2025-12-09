@@ -367,7 +367,7 @@
       </div>
 
       <div class="manual-link">
-        <a href="./fixaibot/fixo-frontend/index.html" id="manual-link">
+        <a href="./fixo-frontend/index.html" id="manual-link">
           Accéder directement à l'application
         </a>
       </div>
@@ -407,19 +407,17 @@
 
       // Redirection après 2 secondes
       setTimeout(() => {
-        window.location.replace("./fixaibot/fixo-frontend/index.html");
+        window.location.replace("./fixo-frontend/index.html");
       }, 2000);
 
       // Fallback pour navigateurs sans JavaScript
       if (!window.location.replace) {
-        window.location.href = "./fixaibot/fixo-frontend/index.html";
+        window.location.href = "./fixo-frontend/index.html";
       }
     </script>
 
     <noscript>
-      <meta
-        http-equiv="refresh"
-        content="0; url=./fixaibot/fixo-frontend/index.html" />
+      <meta http-equiv="refresh" content="0; url=./fixo-frontend/index.html" />
       <style>
         .spinner,
         .progress-container,

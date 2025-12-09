@@ -61,22 +61,26 @@ http://localhost:8080
 
 ```
 FixoBot/
-├── index.html                    # Page de redirection
-├── fixaibot/
-│   └── fixo-frontend/
-│       ├── index.html            # Application principale
-│       ├── styles/               # Fichiers CSS
-│       │   ├── variables.css
-│       │   ├── base.css
-│       │   ├── markdown.css
-│       │   └── help.css
-│       ├── scripts/              # Code JavaScript
-│       │   ├── app.js
-│       │   ├── components/       # Composants UI
-│       │   ├── services/         # Logique métier
-│       │   └── utils/            # Utilitaires
-│       ├── data/                 # Base de connaissances
-│       └── assets/               # Images et ressources
+├── index.html                    # Page de redirection (racine)
+└── fixaibot/
+    ├── index.html                # Page de redirection (intermédiaire)
+    ├── README.md                 # Documentation principale
+    ├── DEVELOPER.md              # Guide développeur
+    ├── LICENSE                   # Licence MIT
+    └── fixo-frontend/
+        ├── index.html            # Application principale
+        ├── styles/               # Fichiers CSS
+        │   ├── variables.css
+        │   ├── base.css
+        │   ├── markdown.css
+        │   └── help.css
+        ├── scripts/              # Code JavaScript
+        │   ├── app.js
+        │   ├── components/       # Composants UI
+        │   ├── services/         # Logique métier
+        │   └── utils/            # Utilitaires
+        ├── data/                 # Base de connaissances
+        └── assets/               # Images et ressources
 ```
 
 ## Technologies utilisées
