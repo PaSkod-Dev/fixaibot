@@ -1,0 +1,123 @@
+/* 
+   FIXƆ - Comportement de scroll
+   */
+
+/* NOTE: Le layout principal est défini dans layout.css
+   Ce fichier contient uniquement les styles additionnels pour le scroll */
+
+/* ───────────────────────────────────────────────────────────────────────────
+   SCROLL AUTOMATIQUE AVANCÉ
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Scroll fluide natif */
+.chat-container__messages {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Animation d'entrée des messages */
+.message {
+  animation: messageSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bouton "Scroll to bottom" (optionnel) */
+.scroll-to-bottom-btn {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--couleur-accent) 0%, var(--couleur-accent-foncee) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8) translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 998;
+}
+
+.scroll-to-bottom-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+}
+
+.scroll-to-bottom-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
+}
+
+.scroll-to-bottom-btn:active {
+  transform: scale(0.95);
+}
+
+.scroll-to-bottom-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Badge de nouveaux messages */
+.new-messages-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--couleur-erreur);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scroll-to-bottom-btn {
+    bottom: 100px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .scroll-to-bottom-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}

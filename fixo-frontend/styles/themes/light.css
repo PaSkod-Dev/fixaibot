@@ -1,0 +1,278 @@
+/* 
+   FIXƆ - Thème Clair Premium
+   */
+
+[data-theme="light"] {
+  /* Couleurs de fond */
+  --couleur-fond: #f8fafc;
+  --couleur-fond-secondaire: #f1f5f9;
+
+  /* Couleurs de texte */
+  --couleur-texte: #1e293b;
+  --couleur-texte-secondaire: #64748b;
+
+  /* Bordures */
+  --couleur-bordure: #e2e8f0;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   HEADER - Thème Clair (Design cohérent)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .chat-container__header {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .chat-container__header h1 {
+  color: #1e293b !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .chat-container__header p {
+  color: #64748b !important;
+}
+
+/* Avatar du header en mode clair */
+[data-theme="light"] .header-avatar {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%) !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3) !important;
+}
+
+[data-theme="light"] .header-avatar svg {
+  color: #0f172a;
+}
+
+/* Boutons du header en mode clair */
+[data-theme="light"] .btn-header {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: #1e293b;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
+}
+
+[data-theme="light"] .btn-header:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
+
+[data-theme="light"] .btn-header svg {
+  color: #f59e0b;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   ZONE DE MESSAGES - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .chat-container__messages {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   MESSAGES ASSISTANT - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .message--assistant .message__bulle {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  color: #1e293b;
+}
+
+[data-theme="light"] .message--assistant .message__texte {
+  color: #1e293b;
+}
+
+[data-theme="light"] .message--assistant .message__bulle:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(245, 158, 11, 0.15);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   MESSAGES UTILISATEUR - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .message--utilisateur .message__bulle {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: #ffffff;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  box-shadow: 0 4px 15px rgba(30, 41, 59, 0.2);
+}
+
+[data-theme="light"] .message--utilisateur .message__texte {
+  color: #ffffff;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   AVATAR - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .message__avatar {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  color: #0f172a;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   BARRE DE SAISIE - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .chat-container__input {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .input-bar {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .input-bar:focus-within {
+  border-color: #f59e0b;
+  box-shadow:
+    0 4px 20px rgba(245, 158, 11, 0.15),
+    0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+[data-theme="light"] .input-bar__champ {
+  color: #1e293b;
+}
+
+[data-theme="light"] .input-bar__champ::placeholder {
+  color: #94a3b8;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   ÉTAPES DE SOLUTION - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .message__etapes {
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .message__etape {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(251, 191, 36, 0.02) 100%);
+  border-left-color: #f59e0b;
+}
+
+[data-theme="light"] .message__etape:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.1);
+}
+
+[data-theme="light"] .message__etape-texte {
+  color: #1e293b;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   MESSAGE DE BIENVENUE - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .message__bulle--bienvenue {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(245, 158, 11, 0.08) !important;
+}
+
+[data-theme="light"] .bienvenue-titre h2 {
+  color: #1e293b;
+}
+
+[data-theme="light"] .bienvenue-titre .sous-titre {
+  color: #64748b;
+}
+
+[data-theme="light"] .bienvenue-description {
+  color: #475569;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.04) 0%, transparent 100%);
+}
+
+[data-theme="light"] .categorie-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.04) 0%, rgba(251, 191, 36, 0.02) 100%);
+  border-color: #e2e8f0;
+}
+
+[data-theme="light"] .categorie-card:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(251, 191, 36, 0.04) 100%);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="light"] .categorie-card span {
+  color: #1e293b;
+}
+
+[data-theme="light"] .bienvenue-cta {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.06) 0%, rgba(52, 211, 153, 0.03) 100%);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="light"] .bienvenue-cta span {
+  color: #059669;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   INDICATEUR DE MODE - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .mode-indicator {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, rgba(251, 191, 36, 0.03) 100%);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+[data-theme="light"] .mode-indicator span {
+  color: #64748b;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   HEURE DES MESSAGES - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .message__heure {
+  color: #94a3b8;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   SCROLLBAR - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .chat-container__messages::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] .chat-container__messages::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   BOUTON SCROLL TO BOTTOM - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .scroll-to-bottom-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   CODE MARKDOWN - Thème Clair
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-theme="light"] .code-inline {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+}
+
+[data-theme="light"] .md-quote {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.04) 0%, transparent 100%);
+  color: #475569;
+}

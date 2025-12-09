@@ -1,0 +1,157 @@
+/* 
+   FIXƆ - Design System - Variables CSS (PREMIUM GOLD EDITION)
+   */
+
+:root {
+   /* 
+     COULEURS PRINCIPALES - PALETTE PREMIUM
+      */
+
+   /* Bleu nuit profond - Élégance, confiance */
+   --couleur-principale: #0f172a;
+   --couleur-principale-claire: #1e293b;
+   --couleur-principale-foncee: #020617;
+
+   /* Bleu royal - Action, interactivité */
+   --couleur-secondaire: #3b82f6;
+   --couleur-secondaire-claire: #60a5fa;
+   --couleur-secondaire-foncee: #2563eb;
+
+   /* OR PREMIUM - L'accent signature FIXƆ */
+   --couleur-accent: #f59e0b;
+   --couleur-accent-claire: #fbbf24;
+   --couleur-accent-foncee: #d97706;
+   --couleur-or-gradient: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+
+   /* 
+     COULEURS SÉMANTIQUES
+      */
+
+   /* Succès - Émeraude */
+   --couleur-succes: #10b981;
+   --couleur-succes-claire: #34d399;
+   --couleur-succes-foncee: #059669;
+
+   /* Erreur - Rubis */
+   --couleur-erreur: #ef4444;
+   --couleur-erreur-claire: #f87171;
+   --couleur-erreur-foncee: #dc2626;
+
+   /* Avertissement - Orange vif */
+   --couleur-avertissement: #f97316;
+   --couleur-avertissement-claire: #fb923c;
+   --couleur-avertissement-foncee: #ea580c;
+
+   /* Information - Bleu ciel */
+   --couleur-info: #0ea5e9;
+   --couleur-info-claire: #38bdf8;
+   --couleur-info-foncee: #0284c7;
+
+   /* 
+     COULEURS NEUTRES
+      */
+
+   --couleur-texte: #1e293b;
+   --couleur-texte-secondaire: #64748b;
+   --couleur-texte-desactive: #94a3b8;
+
+   --couleur-fond: #ffffff;
+   --couleur-fond-secondaire: #f8fafc;
+   --couleur-fond-tertiaire: #f1f5f9;
+
+   --couleur-bordure: #e2e8f0;
+   --couleur-bordure-focus: #f59e0b;
+
+   /* 
+     THÈME SOMBRE - PREMIUM DARK
+      */
+
+   --dark-couleur-texte: #f8fafc;
+   --dark-couleur-texte-secondaire: #94a3b8;
+   --dark-couleur-fond: #0f172a;
+   --dark-couleur-fond-secondaire: #1e293b;
+   --dark-couleur-fond-tertiaire: #334155;
+   --dark-couleur-bordure: #334155;
+
+   /* 
+     TYPOGRAPHIE
+      */
+
+   --police-principale: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+   --police-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+   /* Tailles */
+   --taille-xs: 0.75rem;
+   --taille-sm: 0.875rem;
+   --taille-base: 1rem;
+   --taille-lg: 1.125rem;
+   --taille-xl: 1.25rem;
+   --taille-2xl: 1.5rem;
+   --taille-3xl: 1.875rem;
+   --taille-4xl: 2.25rem;
+   --taille-5xl: 3rem;
+   --taille-6xl: 3.75rem;
+
+   /* Graisse */
+   --poids-normal: 400;
+   --poids-medium: 500;
+   --poids-semibold: 600;
+   --poids-bold: 700;
+   --poids-extrabold: 800;
+
+   /* Hauteur de ligne */
+   --ligne-serree: 1.25;
+   --ligne-normale: 1.5;
+   --ligne-large: 1.75;
+
+   /* 
+     ESPACEMENTS
+      */
+
+   --espace-1: 0.25rem;
+   --espace-2: 0.5rem;
+   --espace-3: 0.75rem;
+   --espace-4: 1rem;
+   --espace-5: 1.25rem;
+   --espace-6: 1.5rem;
+   --espace-8: 2rem;
+   --espace-10: 2.5rem;
+   --espace-12: 3rem;
+   --espace-16: 4rem;
+
+   /* 
+     RAYONS DE BORDURE
+      */
+
+   --rayon-sm: 0.375rem;
+   --rayon-md: 0.5rem;
+   --rayon-lg: 0.75rem;
+   --rayon-xl: 1rem;
+   --rayon-2xl: 1.5rem;
+   --rayon-3xl: 2rem;
+   --rayon-full: 9999px;
+
+   /* 
+     OMBRES PREMIUM
+      */
+
+   --ombre-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+   --ombre-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+   --ombre-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+   --ombre-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+   --ombre-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+   /* Ombres dorées premium */
+   --ombre-doree: 0 4px 14px 0 rgba(245, 158, 11, 0.35);
+   --ombre-doree-lg: 0 8px 25px 0 rgba(245, 158, 11, 0.4);
+   --ombre-doree-glow: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.3);
+
+   /* 
+     TRANSITIONS
+      */
+
+   --transition-rapide: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+   --transition-normale: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   --transition-lente: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+   --transition-rebond: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

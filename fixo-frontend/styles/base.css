@@ -1,0 +1,193 @@
+/* 
+   FIXƆ - Styles de base (Reset et fondations)
+   */
+
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Import de la police Inter depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Styles de base */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--police-principale);
+  font-size: var(--taille-base);
+  font-weight: var(--poids-normal);
+  line-height: var(--ligne-normale);
+  color: var(--couleur-texte);
+  background-color: var(--couleur-fond);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* Mode sombre pour le body */
+[data-theme="dark"] body {
+  background-color: var(--dark-couleur-fond);
+  color: var(--dark-couleur-texte);
+}
+
+/* Liens */
+a {
+  color: var(--couleur-secondaire);
+  text-decoration: none;
+  transition: color var(--transition-rapide);
+}
+
+a:hover {
+  color: var(--couleur-secondaire-foncee);
+}
+
+a:focus {
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+  border-radius: var(--rayon-sm);
+}
+
+/* Titres */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--poids-semibold);
+  line-height: var(--ligne-serree);
+  color: var(--couleur-texte);
+  margin-bottom: var(--espace-4);
+}
+
+h1 {
+  font-size: var(--taille-4xl);
+}
+
+h2 {
+  font-size: var(--taille-3xl);
+}
+
+h3 {
+  font-size: var(--taille-2xl);
+}
+
+h4 {
+  font-size: var(--taille-xl);
+}
+
+h5 {
+  font-size: var(--taille-lg);
+}
+
+h6 {
+  font-size: var(--taille-base);
+}
+
+/* Paragraphes */
+p {
+  margin-bottom: var(--espace-4);
+  color: var(--couleur-texte);
+}
+
+/* Listes */
+ul,
+ol {
+  margin-left: var(--espace-6);
+  margin-bottom: var(--espace-4);
+}
+
+li {
+  margin-bottom: var(--espace-2);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Boutons par défaut */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Champs de formulaire */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--couleur-texte);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-md);
+  padding: var(--espace-3) var(--espace-4);
+  transition: border-color var(--transition-rapide), box-shadow var(--transition-rapide);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--couleur-bordure-focus);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Code */
+code {
+  font-family: var(--police-mono);
+  font-size: 0.9em;
+  background-color: var(--couleur-fond-tertiaire);
+  padding: var(--espace-1) var(--espace-2);
+  border-radius: var(--rayon-sm);
+  color: var(--couleur-erreur);
+}
+
+pre {
+  font-family: var(--police-mono);
+  background-color: var(--couleur-fond-tertiaire);
+  padding: var(--espace-4);
+  border-radius: var(--rayon-md);
+  overflow-x: auto;
+  margin-bottom: var(--espace-4);
+}
+
+/* Accessibilité - Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--couleur-bordure-focus);
+  outline-offset: 2px;
+}
+
+/* Masquer visuellement mais garder accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

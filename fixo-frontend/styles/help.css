@@ -1,0 +1,595 @@
+/* 
+   FIXƆ - Styles du Centre d'aide
+   */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BOUTON D'AIDE FLOTTANT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-aide {
+    position: fixed;
+    top: 18px;
+    right: 120px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--couleur-bordure);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.btn-aide svg {
+    width: 18px;
+    height: 18px;
+    color: var(--couleur-texte-secondaire);
+    transition: color 0.2s ease;
+}
+
+.btn-aide:hover {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--couleur-accent);
+}
+
+.btn-aide:hover svg {
+    color: var(--couleur-accent);
+}
+
+.btn-aide.active {
+    background: var(--couleur-accent);
+    border-color: var(--couleur-accent);
+}
+
+.btn-aide.active svg {
+    color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PANNEAU D'AIDE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.panneau-aide {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 380px;
+    max-height: 80vh;
+    background: var(--couleur-fond);
+    border-radius: var(--rayon-xl);
+    border: 1px solid var(--couleur-bordure);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s ease;
+    z-index: 999;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.panneau-aide.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Header - Fixe en haut */
+.aide-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--espace-3) var(--espace-4);
+    background: var(--couleur-fond);
+    background-image: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, transparent 100%);
+    border-bottom: 1px solid var(--couleur-bordure);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.aide-titre {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-2);
+    font-size: var(--taille-lg);
+    font-weight: var(--poids-bold);
+    color: var(--couleur-texte);
+    margin: 0;
+}
+
+.aide-titre svg {
+    width: 24px;
+    height: 24px;
+    color: var(--couleur-accent);
+}
+
+.aide-fermer {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.aide-fermer svg {
+    width: 18px;
+    height: 18px;
+    color: var(--couleur-texte-secondaire);
+}
+
+.aide-fermer:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.aide-fermer:hover svg {
+    color: #ef4444;
+}
+
+/* Navigation - Fixe sous le header */
+.aide-navigation {
+    display: flex;
+    gap: var(--espace-1);
+    padding: var(--espace-2) var(--espace-3);
+    background: var(--couleur-fond-secondaire);
+    border-bottom: 1px solid var(--couleur-bordure);
+    overflow-x: auto;
+    flex-shrink: 0;
+}
+
+.aide-nav-btn {
+    padding: var(--espace-2) var(--espace-3);
+    border-radius: var(--rayon-md);
+    background: transparent;
+    border: none;
+    font-size: var(--taille-sm);
+    font-weight: var(--poids-medium);
+    color: var(--couleur-texte-secondaire);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.aide-nav-btn:hover {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--couleur-accent);
+}
+
+.aide-nav-btn.active {
+    background: var(--couleur-accent);
+    color: white;
+}
+
+/* Contenu - Zone scrollable */
+.aide-contenu {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--espace-4);
+    min-height: 0;
+}
+
+/* Scrollbar personnalisée pour le contenu */
+.aide-contenu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.aide-contenu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.aide-contenu::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.3);
+    border-radius: 3px;
+}
+
+.aide-contenu::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 158, 11, 0.5);
+}
+
+.aide-section {
+    display: none;
+}
+
+.aide-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aide-section h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-2);
+    font-size: var(--taille-lg);
+    font-weight: var(--poids-bold);
+    color: var(--couleur-texte);
+    margin: 0 0 var(--espace-3) 0;
+}
+
+.aide-section h3 .titre-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--couleur-accent);
+    flex-shrink: 0;
+}
+
+.aide-section p {
+    color: var(--couleur-texte-secondaire);
+    line-height: 1.6;
+    margin-bottom: var(--espace-3);
+}
+
+/* Cards d'accueil */
+.aide-cards {
+    display: grid;
+    gap: var(--espace-3);
+    margin: var(--espace-4) 0;
+}
+
+.aide-card {
+    padding: var(--espace-3);
+    background: var(--couleur-fond-secondaire);
+    border-radius: var(--rayon-lg);
+    border: 1px solid var(--couleur-bordure);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.aide-card:hover {
+    border-color: var(--couleur-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.aide-card-icon {
+    margin-bottom: var(--espace-2);
+}
+
+.aide-card-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--couleur-accent);
+}
+
+.aide-card h4 {
+    font-size: var(--taille-base);
+    font-weight: var(--poids-semibold);
+    color: var(--couleur-texte);
+    margin: 0 0 var(--espace-1) 0;
+}
+
+.aide-card p {
+    font-size: var(--taille-sm);
+    color: var(--couleur-texte-secondaire);
+    margin: 0;
+}
+
+/* Astuce */
+.aide-astuce {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espace-2);
+    padding: var(--espace-3);
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 3px solid var(--couleur-accent);
+    border-radius: 0 var(--rayon-md) var(--rayon-md) 0;
+    font-size: var(--taille-sm);
+    color: var(--couleur-texte);
+}
+
+.aide-astuce .astuce-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--couleur-accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Étapes (pour la section API) */
+.aide-etapes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-3);
+}
+
+.aide-etape {
+    display: flex;
+    gap: var(--espace-3);
+    align-items: flex-start;
+}
+
+.etape-numero {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--couleur-accent);
+    color: white;
+    font-weight: var(--poids-bold);
+    font-size: var(--taille-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.etape-contenu h4 {
+    font-size: var(--taille-base);
+    font-weight: var(--poids-semibold);
+    color: var(--couleur-texte);
+    margin: 0 0 var(--espace-1) 0;
+}
+
+.etape-contenu p {
+    font-size: var(--taille-sm);
+    margin: 0;
+}
+
+.etape-contenu a {
+    color: var(--couleur-accent);
+    text-decoration: underline;
+}
+
+/* Info box */
+.aide-info {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espace-2);
+    margin-top: var(--espace-4);
+    padding: var(--espace-3);
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: var(--rayon-md);
+    font-size: var(--taille-sm);
+}
+
+.aide-info .info-icon {
+    width: 20px;
+    height: 20px;
+    color: #3b82f6;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.aide-info ul {
+    margin: var(--espace-2) 0 0 var(--espace-4);
+    padding: 0;
+}
+
+.aide-info li {
+    color: var(--couleur-texte-secondaire);
+    margin: var(--espace-1) 0;
+}
+
+/* Modes */
+.aide-mode {
+    margin-bottom: var(--espace-3);
+    border-radius: var(--rayon-lg);
+    border: 1px solid var(--couleur-bordure);
+    overflow: hidden;
+}
+
+.mode-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--espace-2) var(--espace-3);
+}
+
+.mode-header.mode-lite {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%);
+}
+
+.mode-header.mode-core {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+.mode-header.mode-pro {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+.mode-badge {
+    font-size: var(--taille-xs);
+    font-weight: var(--poids-bold);
+    padding: 2px 8px;
+    border-radius: var(--rayon-sm);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--couleur-texte);
+}
+
+.mode-prix {
+    font-size: var(--taille-xs);
+    color: var(--couleur-texte-secondaire);
+}
+
+.mode-body {
+    padding: var(--espace-3);
+    background: var(--couleur-fond-secondaire);
+}
+
+.mode-body p {
+    margin: 0 0 var(--espace-2) 0;
+    font-weight: var(--poids-medium);
+}
+
+.mode-body ul {
+    margin: 0;
+    padding-left: var(--espace-4);
+}
+
+.mode-body li {
+    font-size: var(--taille-sm);
+    color: var(--couleur-texte-secondaire);
+    margin: var(--espace-1) 0;
+}
+
+/* FAQ */
+.aide-faq {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-2);
+}
+
+.faq-item {
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon-md);
+    overflow: hidden;
+}
+
+.faq-item summary {
+    padding: var(--espace-3);
+    font-weight: var(--poids-medium);
+    color: var(--couleur-texte);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 1.2em;
+    color: var(--couleur-accent);
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-item summary:hover {
+    background: var(--couleur-fond-secondaire);
+}
+
+.faq-item p {
+    padding: 0 var(--espace-3) var(--espace-3);
+    margin: 0;
+    font-size: var(--taille-sm);
+    color: var(--couleur-texte-secondaire);
+    border-top: 1px solid var(--couleur-bordure);
+    background: var(--couleur-fond-secondaire);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .btn-aide {
+        top: 15px;
+        right: 100px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-aide svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .panneau-aide {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        max-height: 85vh;
+        border-radius: var(--rayon-xl) var(--rayon-xl) 0 0;
+    }
+
+    .panneau-aide.open {
+        transform: translateY(0);
+    }
+
+    .aide-navigation {
+        padding: var(--espace-2);
+    }
+
+    .aide-nav-btn {
+        padding: var(--espace-2);
+        font-size: var(--taille-xs);
+    }
+
+    .aide-contenu {
+        padding: var(--espace-3);
+    }
+
+    .aide-section h3 {
+        font-size: var(--taille-base);
+    }
+
+    .aide-etape {
+        flex-direction: column;
+        gap: var(--espace-2);
+    }
+
+    .etape-numero {
+        width: 24px;
+        height: 24px;
+        font-size: var(--taille-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-aide {
+        top: 15px;
+        right: 90px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .btn-aide svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .aide-header {
+        padding: var(--espace-3);
+    }
+
+    .aide-titre {
+        font-size: var(--taille-base);
+    }
+
+    .aide-titre svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .aide-card {
+        padding: var(--espace-2);
+    }
+
+    .aide-card-icon {
+        font-size: 1.2em;
+    }
+
+    .aide-mode .mode-body {
+        padding: var(--espace-2);
+    }
+}

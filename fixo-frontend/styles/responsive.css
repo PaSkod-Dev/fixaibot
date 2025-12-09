@@ -1,0 +1,289 @@
+/* 
+   FIXƆ - Responsive (Media queries) - PREMIUM MOBILE
+   */
+
+/* Mobile First - Les styles de base sont pour mobile */
+
+/* Tablettes (à partir de 768px) */
+@media (min-width: 768px) {
+  .conteneur {
+    padding: 0 var(--espace-6);
+  }
+
+  .message__contenu {
+    max-width: 60%;
+  }
+
+  .grille--2,
+  .grille--3,
+  .grille--4 {
+    gap: var(--espace-6);
+  }
+}
+
+/* Desktop (à partir de 1024px) */
+@media (min-width: 1024px) {
+  .chat-container {
+    max-width: 1400px;
+  }
+
+  .message__contenu {
+    max-width: 50%;
+  }
+
+  .input-bar {
+    padding: var(--espace-5);
+  }
+}
+
+/* 
+   MOBILE - Ajustements spécifiques
+   */
+
+@media (max-width: 767px) {
+
+  /* Header compact */
+  .chat-container__header {
+    padding: var(--espace-3) var(--espace-4);
+  }
+
+  .chat-container__header h1 {
+    font-size: var(--taille-xl) !important;
+  }
+
+  .chat-container__header p {
+    font-size: var(--taille-xs) !important;
+  }
+
+  .header-avatar {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .header-avatar svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .btn-header {
+    width: 36px;
+    height: 36px;
+  }
+
+  .btn-header svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Zone de messages */
+  .chat-container__messages {
+    padding: var(--espace-3);
+  }
+
+  /* Footer compact */
+  .chat-container__input {
+    padding: var(--espace-3);
+  }
+
+  /* Messages pleine largeur sur mobile */
+  .message__contenu {
+    max-width: 90%;
+  }
+
+  .message {
+    gap: var(--espace-2);
+    margin-bottom: var(--espace-4);
+  }
+
+  .message__avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .message__avatar svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .message__bulle {
+    padding: var(--espace-3) var(--espace-4);
+  }
+
+  .message__texte {
+    font-size: var(--taille-sm);
+  }
+
+  /* Input bar mobile */
+  .input-bar {
+    padding: var(--espace-3);
+    border-radius: var(--rayon-xl);
+  }
+
+  .input-bar__champ {
+    min-height: 40px;
+    font-size: var(--taille-sm);
+    padding: var(--espace-2);
+  }
+
+  .input-bar__bouton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .input-bar__bouton svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Mode indicator */
+  .mode-indicator-wrapper {
+    margin-top: var(--espace-2);
+    padding: var(--espace-1) 0;
+  }
+
+  .mode-indicator {
+    padding: var(--espace-1) var(--espace-3);
+  }
+
+  .mode-indicator svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .mode-indicator span {
+    font-size: 0.7rem;
+  }
+
+  /* Boutons plus petits */
+  .bouton {
+    padding: var(--espace-2) var(--espace-4);
+    font-size: var(--taille-sm);
+  }
+
+  /* Cartes */
+  .carte {
+    padding: var(--espace-4);
+  }
+
+  /* Toast */
+  .toast {
+    bottom: var(--espace-4);
+    right: var(--espace-4);
+    left: var(--espace-4);
+    min-width: auto;
+    max-width: none;
+  }
+
+  /* Grilles en colonne unique */
+  .grille--2,
+  .grille--3,
+  .grille--4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Masquer certains éléments sur mobile */
+  .desktop-only {
+    display: none;
+  }
+
+  /* Étapes de solution mobile */
+  .message__etapes {
+    margin-top: var(--espace-3);
+    padding-top: var(--espace-3);
+  }
+
+  .message__etape {
+    padding: var(--espace-3);
+    margin-bottom: var(--espace-2);
+  }
+
+  .message__etape-numero {
+    width: 24px;
+    height: 24px;
+    font-size: var(--taille-xs);
+  }
+
+  .message__etape-texte {
+    font-size: var(--taille-sm);
+  }
+}
+
+/* Très petits écrans (moins de 400px) */
+@media (max-width: 400px) {
+  html {
+    font-size: 14px;
+  }
+
+  .chat-container__header {
+    padding: var(--espace-2) var(--espace-3);
+  }
+
+  .chat-container__header h1 {
+    font-size: var(--taille-lg) !important;
+  }
+
+  .header-avatar {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .btn-header {
+    width: 32px;
+    height: 32px;
+  }
+
+  .message__avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .message__avatar svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .message__contenu {
+    max-width: 95%;
+  }
+
+  .input-bar {
+    padding: var(--espace-2);
+  }
+
+  .input-bar__bouton {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Mode paysage sur mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .chat-container__header {
+    padding: var(--espace-2) var(--espace-4);
+  }
+
+  .chat-container__messages {
+    padding: var(--espace-3);
+  }
+
+  .mode-indicator-wrapper {
+    display: none;
+  }
+}
+
+/* Impression */
+@media print {
+
+  .chat-container__header,
+  .chat-container__input {
+    display: none;
+  }
+
+  .chat-container__messages {
+    padding: 0;
+  }
+
+  .message {
+    page-break-inside: avoid;
+  }
+}

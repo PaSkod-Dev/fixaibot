@@ -1,0 +1,32 @@
+# FIXƆ - Fichiers à ignorer par Git
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (si ajoutées plus tard)
+node_modules/
+
+# Build (si ajouté plus tard)
+dist/
+build/
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Fichiers de configuration locaux
+.env.local
+.env.*.local

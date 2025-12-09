@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FIXƆ - Assistant IA de dépannage informatique" />
+    <title>FIXƆ - Chargement...</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 50%,
+          #334155 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Particules en arrière-plan */
+      .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(245, 158, 11, 0.3);
+        border-radius: 50%;
+        animation: float 15s infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) translateX(100px);
+          opacity: 0;
+        }
+      }
+
+      /* Container principal */
+      .container {
+        text-align: center;
+        padding: 3rem;
+        background: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+          0 0 100px rgba(245, 158, 11, 0.1);
+        max-width: 500px;
+        width: 90%;
+        position: relative;
+        z-index: 1;
+        animation: slideUp 0.6s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Logo animé */
+      .logo-container {
+        position: relative;
+        margin-bottom: 2rem;
+      }
+
+      .logo {
+        font-size: 5rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          #f59e0b 0%,
+          #fbbf24 50%,
+          #f59e0b 100%
+        );
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease infinite, pulse 2s ease-in-out infinite;
+        letter-spacing: -2px;
+        text-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      /* Cercle lumineux derrière le logo */
+      .glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(245, 158, 11, 0.3) 0%,
+          transparent 70%
+        );
+        animation: glowPulse 2s ease-in-out infinite;
+        z-index: -1;
+      }
+
+      @keyframes glowPulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 0.8;
+        }
+      }
+
+      /* Titre */
+      .title {
+        font-size: 1.5rem;
+        color: #e2e8f0;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+        font-weight: 400;
+      }
+
+      /* Barre de progression */
+      .progress-container {
+        width: 100%;
+        height: 6px;
+        background: rgba(71, 85, 105, 0.5);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+        background-size: 200% 100%;
+        border-radius: 10px;
+        animation: progressLoad 2s ease-out forwards, shimmer 1.5s infinite;
+        box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+      }
+
+      @keyframes progressLoad {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+
+      /* Message de statut */
+      .status {
+        font-size: 0.875rem;
+        color: #cbd5e1;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #10b981;
+        border-radius: 50%;
+        animation: blink 1.5s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* Spinner */
+      .spinner {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1.5rem;
+        position: relative;
+      }
+
+      .spinner::before,
+      .spinner::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+      }
+
+      .spinner::before {
+        width: 100%;
+        height: 100%;
+        border: 4px solid rgba(245, 158, 11, 0.2);
+        border-top-color: #f59e0b;
+        animation: spin 1s linear infinite;
+      }
+
+      .spinner::after {
+        width: 80%;
+        height: 80%;
+        top: 10%;
+        left: 10%;
+        border: 4px solid rgba(251, 191, 36, 0.2);
+        border-top-color: #fbbf24;
+        animation: spin 1.5s linear infinite reverse;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Lien manuel */
+      .manual-link {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(71, 85, 105, 0.5);
+      }
+
+      .manual-link a {
+        color: #f59e0b;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .manual-link a:hover {
+        color: #fbbf24;
+        transform: translateX(5px);
+      }
+
+      .manual-link a::after {
+        content: "→";
+        transition: transform 0.3s ease;
+      }
+
+      .manual-link a:hover::after {
+        transform: translateX(5px);
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        .container {
+          padding: 2rem 1.5rem;
+        }
+
+        .logo {
+          font-size: 4rem;
+        }
+
+        .title {
+          font-size: 1.25rem;
+        }
+
+        .subtitle {
+          font-size: 0.875rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Particules animées -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Container principal -->
+    <div class="container">
+      <div class="logo-container">
+        <div class="glow"></div>
+        <div class="logo">FIXƆ</div>
+      </div>
+
+      <h1 class="title">Assistant de Dépannage Informatique</h1>
+      <p class="subtitle">Chargement de l'application...</p>
+
+      <div class="spinner"></div>
+
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        <span id="status-text">Initialisation en cours</span>
+      </div>
+
+      <div class="manual-link">
+        <a href="./fixaibot/fixo-frontend/index.html" id="manual-link">
+          Accéder directement à l'application
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Créer des particules animées
+      const particlesContainer = document.getElementById("particles");
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.animationDelay = Math.random() * 15 + "s";
+        particle.style.animationDuration = Math.random() * 10 + 10 + "s";
+        particlesContainer.appendChild(particle);
+      }
+
+      // Simulation de chargement avec messages
+      const statusText = document.getElementById("status-text");
+      const messages = [
+        "Initialisation en cours",
+        "Chargement des modules",
+        "Préparation de l'interface",
+        "Finalisation",
+      ];
+
+      let currentMessage = 0;
+      const messageInterval = setInterval(() => {
+        currentMessage++;
+        if (currentMessage < messages.length) {
+          statusText.textContent = messages[currentMessage];
+        } else {
+          clearInterval(messageInterval);
+          statusText.textContent = "Redirection...";
+        }
+      }, 500);
+
+      // Redirection après 2 secondes
+      setTimeout(() => {
+        window.location.replace("./fixaibot/fixo-frontend/index.html");
+      }, 2000);
+
+      // Fallback pour navigateurs sans JavaScript
+      if (!window.location.replace) {
+        window.location.href = "./fixaibot/fixo-frontend/index.html";
+      }
+    </script>
+
+    <noscript>
+      <meta
+        http-equiv="refresh"
+        content="0; url=./fixaibot/fixo-frontend/index.html" />
+      <style>
+        .spinner,
+        .progress-container,
+        .status {
+          display: none;
+        }
+        .manual-link {
+          margin-top: 1rem;
+          padding-top: 1rem;
+        }
+      </style>
+    </noscript>
+  </body>
+</html>

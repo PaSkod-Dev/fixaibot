@@ -1,0 +1,509 @@
+{
+  "version": "1.0",
+  "projet": "FIXƆ",
+  "dateCreation": "2025-11-28",
+  "totalProblemes": 50,
+  "problemes": [
+    {
+      "code": "PLAT-001",
+      "categorie": "plateforme",
+      "titre": "Site universitaire surchargé",
+      "motsClés": ["site", "notes", "lent", "serveur", "université", "surchargé"],
+      "solution": {
+        "resume": "Le site est surchargé. Essayez aux heures creuses.",
+        "etapes": ["Connectez-vous tôt (6h-8h) ou tard (après 20h)", "Videz le cache (Ctrl+Shift+Delete)", "Essayez un autre navigateur"]
+      }
+    },
+    {
+      "code": "PLAT-002",
+      "categorie": "plateforme",
+      "titre": "Notes qui changent au rafraîchissement",
+      "motsClés": ["notes", "change", "rafraîchir", "actualiser"],
+      "solution": {
+        "resume": "Problème de cache ou synchronisation.",
+        "etapes": ["Videz le cache du navigateur", "Faites une capture d'écran", "Signalez au secrétariat"]
+      }
+    },
+    {
+      "code": "PLAT-003",
+      "categorie": "plateforme",
+      "titre": "Mot de passe oublié",
+      "motsClés": ["mot de passe", "oublié", "compte", "réinitialiser"],
+      "solution": {
+        "resume": "Utilisez la récupération de mot de passe.",
+        "etapes": ["Cliquez 'Mot de passe oublié'", "Entrez votre email universitaire", "Vérifiez vos mails (et spams)", "Suivez le lien de réinitialisation"]
+      }
+    },
+    {
+      "code": "PLAT-004",
+      "categorie": "plateforme",
+      "titre": "Problème d'inscription en ligne",
+      "motsClés": ["inscription", "formulaire", "erreur", "administrative"],
+      "solution": {
+        "resume": "Problèmes techniques lors de l'inscription.",
+        "etapes": ["Essayez un autre navigateur", "Videz le cache", "Vérifiez le format des fichiers (<2Mo, PDF)", "Essayez aux heures creuses"]
+      }
+    },
+    {
+      "code": "WIFI-001",
+      "categorie": "reseau",
+      "titre": "Wi-Fi campus très lent",
+      "motsClés": ["wifi", "lent", "internet", "campus", "connexion"],
+      "solution": {
+        "resume": "Le Wi-Fi est peut-être saturé.",
+        "etapes": ["Déconnectez/reconnectez-vous", "Oubliez le réseau et reconnectez", "Rapprochez-vous du point d'accès", "Fermez les apps gourmandes"]
+      }
+    },
+    {
+      "code": "WIFI-002",
+      "categorie": "reseau",
+      "titre": "Wi-Fi instable - connexion qui coupe",
+      "motsClés": ["wifi", "coupe", "déconnecte", "instable"],
+      "solution": {
+        "resume": "Instabilité du Wi-Fi.",
+        "etapes": ["Désactivez/réactivez le Wi-Fi", "Redémarrez l'appareil", "Désactivez le mode économie d'énergie Wi-Fi", "Mettez à jour les pilotes"]
+      }
+    },
+    {
+      "code": "WIFI-003",
+      "categorie": "reseau",
+      "titre": "Impossible de se connecter au Wi-Fi",
+      "motsClés": ["wifi", "connecter", "impossible", "authentification"],
+      "solution": {
+        "resume": "Vérifiez vos identifiants.",
+        "etapes": ["Vérifiez les identifiants universitaires", "Oubliez le réseau et reconnectez", "Vérifiez que le compte est actif", "Testez sur un autre appareil"]
+      }
+    },
+    {
+      "code": "WIFI-004",
+      "categorie": "reseau",
+      "titre": "Routeurs défaillants",
+      "motsClés": ["routeur", "panne", "wifi", "borne"],
+      "solution": {
+        "resume": "Le routeur peut être en panne.",
+        "etapes": ["Signalez au service informatique", "Essayez une autre zone du campus", "Utilisez le partage de connexion temporairement"]
+      }
+    },
+    {
+      "code": "NET-001",
+      "categorie": "reseau",
+      "titre": "Pas de connexion internet chez soi",
+      "motsClés": ["internet", "maison", "domicile", "cours en ligne"],
+      "solution": {
+        "resume": "Alternatives pour suivre les cours.",
+        "etapes": ["Utilisez le partage de connexion du téléphone", "Allez à l'université pour le Wi-Fi", "Téléchargez les cours en PDF quand possible", "Cherchez des espaces avec Wi-Fi gratuit"]
+      }
+    },
+    {
+      "code": "NET-002",
+      "categorie": "reseau",
+      "titre": "Comment créer un réseau local",
+      "motsClés": ["réseau", "local", "partage", "fichiers", "lan"],
+      "solution": {
+        "resume": "Partager des fichiers entre PC.",
+        "etapes": ["Connectez les PC au même réseau", "Activez la découverte réseau (Windows)", "Créez un dossier partagé", "Définissez les autorisations"]
+      }
+    },
+    {
+      "code": "SYS-001",
+      "categorie": "systeme",
+      "titre": "PC ne démarre pas - écran noir",
+      "motsClés": ["démarre", "allume", "écran noir", "boot"],
+      "solution": {
+        "resume": "Vérifications de base.",
+        "etapes": ["Vérifiez le câble d'alimentation", "Vérifiez la batterie (portable)", "Débranchez les périphériques USB", "Maintenez power 10 sec puis rallumez"]
+      }
+    },
+    {
+      "code": "SYS-002",
+      "categorie": "systeme",
+      "titre": "Écran bleu Windows (BSOD)",
+      "motsClés": ["écran bleu", "bsod", "crash", "erreur"],
+      "solution": {
+        "resume": "Erreur système Windows.",
+        "etapes": ["Notez le code d'erreur", "Redémarrez normalement", "Mode sans échec si répété", "Lancez sfc /scannow"]
+      }
+    },
+    {
+      "code": "SYS-003",
+      "categorie": "systeme",
+      "titre": "Écran vert au démarrage",
+      "motsClés": ["écran vert", "démarrage", "bloqué"],
+      "solution": {
+        "resume": "Problème graphique ou Windows Insider.",
+        "etapes": ["Forcez l'arrêt et redémarrez", "Démarrez en mode sans échec", "Mettez à jour les pilotes graphiques"]
+      }
+    },
+    {
+      "code": "SYS-004",
+      "categorie": "systeme",
+      "titre": "Comment accéder au BIOS/UEFI",
+      "motsClés": ["bios", "uefi", "setup", "boot"],
+      "solution": {
+        "resume": "Touche selon la marque du PC.",
+        "etapes": ["Éteignez le PC", "Rallumez et appuyez sur F2 (Dell/Acer/Asus), F10 (HP), F1 (Lenovo), Del (assemblés)", "Alternative: Paramètres > Récupération > Redémarrage avancé"]
+      }
+    },
+    {
+      "code": "SYS-005",
+      "categorie": "systeme",
+      "titre": "Comment démarrer sur clé USB",
+      "motsClés": ["clé usb", "boot", "démarrer", "installer"],
+      "solution": {
+        "resume": "Boot depuis USB.",
+        "etapes": ["Insérez la clé USB bootable", "Appuyez sur F12/F8/Esc au démarrage", "Sélectionnez la clé USB", "Ou modifiez l'ordre de boot dans le BIOS"]
+      }
+    },
+    {
+      "code": "SYS-006",
+      "categorie": "systeme",
+      "titre": "Dual-boot Windows/Linux",
+      "motsClés": ["dual boot", "linux", "windows", "partition"],
+      "solution": {
+        "resume": "Installer deux OS sur le même PC.",
+        "etapes": ["SAUVEGARDEZ vos données d'abord!", "Réduisez la partition Windows", "Créez une clé USB Linux bootable", "Choisissez 'Installer à côté de Windows'"]
+      }
+    },
+    {
+      "code": "PERF-001",
+      "categorie": "systeme",
+      "titre": "PC très lent / qui rame",
+      "motsClés": ["lent", "rame", "lag", "freeze", "performance"],
+      "solution": {
+        "resume": "Optimiser les performances.",
+        "etapes": ["Ouvrez le Gestionnaire des tâches", "Identifiez le composant à 100%", "Fermez les processus gourmands", "Désactivez les programmes au démarrage", "Redémarrez"]
+      }
+    },
+    {
+      "code": "PERF-002",
+      "categorie": "systeme",
+      "titre": "PC lent à cause de Windows Update",
+      "motsClés": ["windows update", "mise à jour", "tiworker", "lent"],
+      "solution": {
+        "resume": "Windows Update consomme des ressources.",
+        "etapes": ["Vérifiez si une mise à jour est en cours", "Laissez-la se terminer", "Redémarrez si bloqué", "Exécutez l'utilitaire de résolution Windows Update"]
+      }
+    },
+    {
+      "code": "PERF-003",
+      "categorie": "systeme",
+      "titre": "Disque dur plein",
+      "motsClés": ["disque", "plein", "espace", "stockage"],
+      "solution": {
+        "resume": "Libérer de l'espace.",
+        "etapes": ["Utilisez Nettoyage de disque", "Videz la Corbeille", "Supprimez les Téléchargements inutiles", "Désinstallez les programmes non utilisés"]
+      }
+    },
+    {
+      "code": "PERF-004",
+      "categorie": "systeme",
+      "titre": "Mémoire RAM saturée",
+      "motsClés": ["mémoire", "ram", "saturée", "100%"],
+      "solution": {
+        "resume": "Optimiser l'utilisation RAM.",
+        "etapes": ["Identifiez les apps gourmandes", "Fermez les onglets de navigateur", "Fermez les apps non utilisées", "Redémarrez le PC"]
+      }
+    },
+    {
+      "code": "PERF-005",
+      "categorie": "systeme",
+      "titre": "PC qui chauffe / ventilateur bruyant",
+      "motsClés": ["chauffe", "ventilateur", "bruit", "surchauffe"],
+      "solution": {
+        "resume": "Éviter la surchauffe.",
+        "etapes": ["Posez le PC sur surface plane", "Vérifiez que les grilles ne sont pas obstruées", "Nettoyez la poussière", "Utilisez un support ventilé"]
+      }
+    },
+    {
+      "code": "SEC-001",
+      "categorie": "systeme",
+      "titre": "Suspicion de virus/malware",
+      "motsClés": ["virus", "malware", "infecté", "popup"],
+      "solution": {
+        "resume": "Nettoyer le système.",
+        "etapes": ["Déconnectez-vous d'internet", "Lancez Windows Defender (analyse complète)", "Téléchargez Malwarebytes", "Supprimez les programmes suspects", "Changez vos mots de passe"]
+      }
+    },
+    {
+      "code": "MAT-001",
+      "categorie": "materiel",
+      "titre": "Imprimante qui n'imprime pas",
+      "motsClés": ["imprimante", "imprime", "hors ligne"],
+      "solution": {
+        "resume": "Vérifier l'imprimante.",
+        "etapes": ["Vérifiez qu'elle est allumée et connectée", "Vérifiez papier et encre", "Annulez la file d'attente", "Redémarrez imprimante et PC", "Réinstallez les pilotes"]
+      }
+    },
+    {
+      "code": "MAT-002",
+      "categorie": "materiel",
+      "titre": "Clé USB non reconnue",
+      "motsClés": ["clé usb", "reconnue", "détecte", "périphérique"],
+      "solution": {
+        "resume": "Vérifier la connexion USB.",
+        "etapes": ["Essayez un autre port USB", "Testez sur un autre PC", "Ouvrez Gestion des disques", "Vérifiez le Gestionnaire de périphériques"]
+      }
+    },
+    {
+      "code": "MAT-003",
+      "categorie": "materiel",
+      "titre": "Écran externe non détecté",
+      "motsClés": ["écran", "externe", "moniteur", "hdmi"],
+      "solution": {
+        "resume": "Vérifier la connexion vidéo.",
+        "etapes": ["Vérifiez le câble des deux côtés", "Sélectionnez la bonne source sur l'écran", "Appuyez Windows+P", "Essayez un autre câble", "Mettez à jour les pilotes graphiques"]
+      }
+    },
+    {
+      "code": "MAT-004",
+      "categorie": "materiel",
+      "titre": "Clavier ou souris ne fonctionne pas",
+      "motsClés": ["clavier", "souris", "fonctionne", "bloqué"],
+      "solution": {
+        "resume": "Vérifier les périphériques.",
+        "etapes": ["Essayez un autre port USB", "Vérifiez les piles (sans fil)", "Vérifiez le Bluetooth", "Redémarrez le PC", "Testez avec un autre clavier/souris"]
+      }
+    },
+    {
+      "code": "MAT-005",
+      "categorie": "materiel",
+      "titre": "Batterie qui ne charge plus",
+      "motsClés": ["batterie", "charge", "branché", "portable"],
+      "solution": {
+        "resume": "Vérifier l'alimentation.",
+        "etapes": ["Vérifiez câble et adaptateur", "Essayez une autre prise", "Retirez/remettez la batterie si possible", "Mettez à jour les pilotes de batterie"]
+      }
+    },
+    {
+      "code": "MAT-006",
+      "categorie": "materiel",
+      "titre": "Disque dur défaillant",
+      "motsClés": ["disque dur", "bruit", "clique", "panne"],
+      "solution": {
+        "resume": "SAUVEGARDEZ IMMÉDIATEMENT!",
+        "etapes": ["Arrêtez d'utiliser le PC", "Sauvegardez vos fichiers importants", "Vérifiez l'état SMART avec CrystalDiskInfo", "Consultez un technicien pour remplacement"]
+      }
+    },
+    {
+      "code": "LOG-001",
+      "categorie": "logiciel",
+      "titre": "Logiciel qui ne s'installe pas",
+      "motsClés": ["installer", "installation", "erreur", "programme"],
+      "solution": {
+        "resume": "Vérifier les droits et compatibilité.",
+        "etapes": ["Exécutez en tant qu'administrateur", "Désactivez temporairement l'antivirus", "Vérifiez l'espace disque", "Retéléchargez l'installeur", "Vérifiez la compatibilité Windows"]
+      }
+    },
+    {
+      "code": "LOG-002",
+      "categorie": "logiciel",
+      "titre": "Application qui plante",
+      "motsClés": ["plante", "crash", "ferme", "freeze"],
+      "solution": {
+        "resume": "Réparer l'application.",
+        "etapes": ["Redémarrez l'application", "Redémarrez le PC", "Mettez à jour l'application", "Réinstallez-la", "Vérifiez les mises à jour Windows"]
+      }
+    },
+    {
+      "code": "LOG-003",
+      "categorie": "logiciel",
+      "titre": "Microsoft Office ne s'active pas",
+      "motsClés": ["office", "activation", "licence", "word", "excel"],
+      "solution": {
+        "resume": "Vérifier la licence.",
+        "etapes": ["Vérifiez le compte Microsoft connecté", "Allez dans Fichier > Compte", "Déconnectez/reconnectez le compte", "Exécutez l'outil de réparation Office"]
+      }
+    },
+    {
+      "code": "LOG-004",
+      "categorie": "logiciel",
+      "titre": "Problème IDE/compilateur",
+      "motsClés": ["ide", "compilateur", "code", "développement", "erreur"],
+      "solution": {
+        "resume": "Vérifier l'environnement de dev.",
+        "etapes": ["Vérifiez que les dépendances sont installées", "Vérifiez le PATH système", "Réinstallez l'IDE", "Consultez les forums de la communauté"]
+      }
+    },
+    {
+      "code": "VISIO-001",
+      "categorie": "logiciel",
+      "titre": "Impossible de rejoindre visioconférence",
+      "motsClés": ["zoom", "meet", "teams", "visio", "rejoindre"],
+      "solution": {
+        "resume": "Vérifier connexion et lien.",
+        "etapes": ["Vérifiez votre connexion internet", "Copiez-collez le lien dans un navigateur", "Essayez l'app au lieu du navigateur", "Vérifiez l'heure de la réunion", "Mettez à jour l'application"]
+      }
+    },
+    {
+      "code": "VISIO-002",
+      "categorie": "logiciel",
+      "titre": "Micro/caméra non détecté en visio",
+      "motsClés": ["micro", "caméra", "visio", "détecté"],
+      "solution": {
+        "resume": "Vérifier les autorisations.",
+        "etapes": ["Vérifiez que le micro/caméra ne sont pas bloqués physiquement", "Vérifiez les paramètres de l'appli", "Windows: Paramètres > Confidentialité > autoriser", "Sélectionnez le bon périphérique", "Fermez les autres apps utilisant le micro/caméra"]
+      }
+    },
+    {
+      "code": "VISIO-003",
+      "categorie": "logiciel",
+      "titre": "Problème de son en cours en ligne",
+      "motsClés": ["son", "audio", "coupe", "saccadé", "écho"],
+      "solution": {
+        "resume": "Optimiser l'audio.",
+        "etapes": ["Utilisez un casque avec micro", "Fermez les apps inutiles", "Rapprochez-vous du routeur", "Désactivez la vidéo si connexion faible", "Baissez la qualité vidéo"]
+      }
+    },
+    {
+      "code": "COURS-001",
+      "categorie": "logiciel",
+      "titre": "Téléchargement supports de cours impossible",
+      "motsClés": ["télécharger", "cours", "pdf", "document"],
+      "solution": {
+        "resume": "Vérifier le téléchargement.",
+        "etapes": ["Clic droit > Enregistrer la cible sous", "Essayez un autre navigateur", "Vérifiez la connexion internet", "Désactivez les extensions", "Demandez au professeur d'envoyer par email"]
+      }
+    },
+    {
+      "code": "DIAG-001",
+      "categorie": "systeme",
+      "titre": "Analyser les logs système",
+      "motsClés": ["logs", "erreur", "diagnostic", "journal", "événements"],
+      "solution": {
+        "resume": "Lire et comprendre les logs.",
+        "etapes": ["Ouvrez l'Observateur d'événements (eventvwr.msc)", "Allez dans Journaux Windows > Système", "Filtrez par niveau Erreur ou Critique", "Notez les codes d'erreur", "Collez les logs dans FIXƆ pour analyse"]
+      }
+    },
+    {
+      "code": "DIAG-002",
+      "categorie": "systeme",
+      "titre": "Où trouver les logs Windows",
+      "motsClés": ["logs", "windows", "journal", "emplacement"],
+      "solution": {
+        "resume": "Localiser les journaux Windows.",
+        "etapes": ["Ouvrez l'Observateur d'événements: Win+R puis eventvwr.msc", "Journaux Windows > Application, Système, Sécurité", "Logs fichiers: C:\\Windows\\Logs", "Logs crash: C:\\Windows\\Minidump"]
+      }
+    },
+    {
+      "code": "DIAG-003",
+      "categorie": "systeme",
+      "titre": "Où trouver les logs Linux",
+      "motsClés": ["logs", "linux", "journal", "syslog"],
+      "solution": {
+        "resume": "Localiser les journaux Linux.",
+        "etapes": ["Logs système: /var/log/syslog ou /var/log/messages", "Logs auth: /var/log/auth.log", "Logs kernel: dmesg ou /var/log/kern.log", "Commande: journalctl pour systemd"]
+      }
+    },
+    {
+      "code": "SECU-001",
+      "categorie": "securite",
+      "titre": "Ordinateur infecté par un virus",
+      "motsClés": ["virus", "malware", "infecté", "lent", "popup", "publicité"],
+      "solution": {
+        "resume": "Nettoyer un ordinateur infecté.",
+        "etapes": ["Déconnectez-vous d'internet", "Lancez Windows Defender ou votre antivirus", "Téléchargez Malwarebytes (version gratuite)", "Faites un scan complet", "Supprimez les menaces détectées", "Redémarrez et refaites un scan"]
+      }
+    },
+    {
+      "code": "SECU-002",
+      "categorie": "securite",
+      "titre": "Compte piraté ou compromis",
+      "motsClés": ["piraté", "hacké", "compte", "volé", "compromis", "sécurité"],
+      "solution": {
+        "resume": "Sécuriser un compte compromis.",
+        "etapes": ["Changez immédiatement le mot de passe", "Activez l'authentification à deux facteurs (2FA)", "Vérifiez les appareils connectés et déconnectez les inconnus", "Vérifiez les emails de récupération", "Prévenez vos contacts d'éventuels messages frauduleux"]
+      }
+    },
+    {
+      "code": "SECU-003",
+      "categorie": "securite",
+      "titre": "Créer un mot de passe sécurisé",
+      "motsClés": ["mot de passe", "sécurisé", "fort", "créer", "générer"],
+      "solution": {
+        "resume": "Bonnes pratiques pour les mots de passe.",
+        "etapes": ["Minimum 12 caractères", "Mélangez majuscules, minuscules, chiffres, symboles", "Évitez les informations personnelles", "Utilisez une phrase secrète (ex: MonChat@Mange3Souris!)", "Utilisez un gestionnaire de mots de passe (Bitwarden, 1Password)"]
+      }
+    },
+    {
+      "code": "PERF-001",
+      "categorie": "systeme",
+      "titre": "Ordinateur très lent au démarrage",
+      "motsClés": ["lent", "démarrage", "boot", "long", "startup"],
+      "solution": {
+        "resume": "Accélérer le démarrage de Windows.",
+        "etapes": ["Ouvrez le Gestionnaire des tâches (Ctrl+Shift+Échap)", "Allez dans l'onglet Démarrage", "Désactivez les programmes inutiles", "Activez le démarrage rapide: Panneau de config > Options d'alimentation", "Nettoyez le disque: Win+R > cleanmgr"]
+      }
+    },
+    {
+      "code": "PERF-002",
+      "categorie": "systeme",
+      "titre": "Disque dur plein",
+      "motsClés": ["disque", "plein", "espace", "stockage", "mémoire"],
+      "solution": {
+        "resume": "Libérer de l'espace disque.",
+        "etapes": ["Lancez le Nettoyage de disque (cleanmgr)", "Videz la Corbeille", "Supprimez les fichiers temporaires: %temp%", "Désinstallez les programmes inutilisés", "Déplacez les gros fichiers sur un disque externe", "Utilisez WinDirStat pour visualiser l'espace"]
+      }
+    },
+    {
+      "code": "PERF-003",
+      "categorie": "systeme",
+      "titre": "RAM insuffisante - ordinateur qui rame",
+      "motsClés": ["ram", "mémoire", "rame", "lent", "swap"],
+      "solution": {
+        "resume": "Optimiser l'utilisation de la RAM.",
+        "etapes": ["Fermez les onglets de navigateur inutiles", "Fermez les applications en arrière-plan", "Vérifiez le Gestionnaire des tâches pour les apps gourmandes", "Augmentez la mémoire virtuelle", "Envisagez d'ajouter de la RAM (8Go minimum recommandé)"]
+      }
+    },
+    {
+      "code": "DEV-001",
+      "categorie": "developpement",
+      "titre": "Erreur npm install",
+      "motsClés": ["npm", "install", "erreur", "node", "modules", "package"],
+      "solution": {
+        "resume": "Résoudre les erreurs npm.",
+        "etapes": ["Supprimez node_modules et package-lock.json", "Videz le cache: npm cache clean --force", "Réinstallez: npm install", "Si erreur de permissions: npm config set prefix ~/.npm-global", "Vérifiez la version de Node: node -v"]
+      }
+    },
+    {
+      "code": "DEV-002",
+      "categorie": "developpement",
+      "titre": "Git push rejeté",
+      "motsClés": ["git", "push", "rejeté", "rejected", "non-fast-forward"],
+      "solution": {
+        "resume": "Résoudre un push Git rejeté.",
+        "etapes": ["Faites d'abord: git pull origin main", "Résolvez les conflits si nécessaire", "Commitez les changements fusionnés", "Puis: git push origin main", "Alternative (attention!): git push --force-with-lease"]
+      }
+    },
+    {
+      "code": "DEV-003",
+      "categorie": "developpement",
+      "titre": "Conflit de merge Git",
+      "motsClés": ["git", "merge", "conflit", "conflict", "fusion"],
+      "solution": {
+        "resume": "Résoudre un conflit de fusion.",
+        "etapes": ["Ouvrez les fichiers en conflit (marqués par Git)", "Cherchez les marqueurs <<<<<<<, =======, >>>>>>>", "Gardez le code souhaité, supprimez les marqueurs", "Sauvegardez les fichiers", "git add . puis git commit -m 'Résolution conflits'"]
+      }
+    },
+    {
+      "code": "MAIL-001",
+      "categorie": "logiciel",
+      "titre": "Emails qui arrivent en spam",
+      "motsClés": ["email", "spam", "courrier", "indésirable", "mail"],
+      "solution": {
+        "resume": "Éviter que les emails arrivent en spam.",
+        "etapes": ["Ajoutez l'expéditeur à vos contacts", "Marquez le mail comme 'Non spam'", "Créez un filtre pour l'expéditeur", "Vérifiez régulièrement le dossier spam", "Demandez à l'expéditeur de vérifier son domaine (SPF/DKIM)"]
+      }
+    },
+    {
+      "code": "PRINT-001",
+      "categorie": "materiel",
+      "titre": "Imprimante non détectée",
+      "motsClés": ["imprimante", "détectée", "pilote", "driver", "impression"],
+      "solution": {
+        "resume": "Faire reconnaître une imprimante.",
+        "etapes": ["Vérifiez les câbles USB ou la connexion Wi-Fi", "Redémarrez l'imprimante et l'ordinateur", "Allez dans Paramètres > Imprimantes", "Cliquez sur Ajouter une imprimante", "Téléchargez le pilote sur le site du fabricant"]
+      }
+    }
+  ]
+}
+

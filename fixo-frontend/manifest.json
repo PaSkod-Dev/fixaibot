@@ -1,0 +1,22 @@
+{
+  "name": "FIXƆ - Assistant de Dépannage Informatique",
+  "short_name": "FIXƆ",
+  "description": "Assistant intelligent de support technique pour l'Université de Lomé",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1a365d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/logo-fixo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "fr",
+  "dir": "ltr"
+}
+

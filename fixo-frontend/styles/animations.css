@@ -1,0 +1,443 @@
+/* 
+   FIXƆ - Animations et transitions
+   */
+
+/* Animation de rotation (loader) */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation d'apparition depuis le bas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation d'apparition depuis la droite */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animation de rebond */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animation de shimmer (chargement) */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Classe pour animation de chargement */
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--couleur-fond-tertiaire) 0%,
+      var(--couleur-fond-secondaire) 50%,
+      var(--couleur-fond-tertiaire) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+  border-radius: var(--rayon-md);
+}
+
+/* Transitions globales */
+.transition-rapide {
+  transition: all var(--transition-rapide);
+}
+
+.transition-normale {
+  transition: all var(--transition-normale);
+}
+
+.transition-lente {
+  transition: all var(--transition-lente);
+}
+
+/* Effet hover avec élévation */
+.hover-lift {
+  transition: transform var(--transition-normale), box-shadow var(--transition-normale);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ombre-lg);
+}
+
+/* Effet de brillance dorée */
+.shimmer-dore {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-dore::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(212, 175, 55, 0.3),
+      transparent);
+  transition: left 0.5s;
+}
+
+.shimmer-dore:hover::before {
+  left: 100%;
+}
+
+/* 
+   ANIMATIONS PROFESSIONNELLES POUR MESSAGES
+   */
+
+/* Animation d'entrée des messages utilisateur (depuis la droite) */
+@keyframes messageUtilisateurEntree {
+  0% {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Animation d'entrée des messages assistant (depuis la gauche) */
+@keyframes messageAssistantEntree {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Appliquer les animations aux messages */
+.message--utilisateur {
+  animation: messageUtilisateurEntree 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.message--assistant {
+  animation: messageAssistantEntree 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Animation des étapes de solution (apparition séquentielle) */
+@keyframes etapeApparition {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.solution-etape {
+  animation: etapeApparition 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+/* Délais pour chaque étape (effet cascade) */
+.solution-etape:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.solution-etape:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.solution-etape:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.solution-etape:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.solution-etape:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.solution-etape:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Animation de typing (points qui clignotent) */
+@keyframes typingDot {
+
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: var(--couleur-accent);
+  border-radius: 50%;
+  animation: typingDot 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Animation de succès (checkmark) */
+@keyframes checkmarkApparition {
+  0% {
+    stroke-dashoffset: 100;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark-anime {
+  stroke-dasharray: 100;
+  animation: checkmarkApparition 0.5s ease-out forwards;
+}
+
+/* Animation de notification (slide up + fade) */
+@keyframes notificationEntree {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes notificationSortie {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+/* Animation de bouton pressé */
+@keyframes boutonPresse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bouton-anime:active {
+  animation: boutonPresse 0.15s ease-out;
+}
+
+/* Animation de brillance sur le logo */
+@keyframes brillanceLogo {
+  0% {
+    text-shadow: 0 0 0 transparent;
+  }
+
+  50% {
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+  }
+
+  100% {
+    text-shadow: 0 0 0 transparent;
+  }
+}
+
+.logo-anime:hover .logo-accent {
+  animation: brillanceLogo 1s ease-in-out;
+}
+
+/* Animation de chargement pour le bouton d'envoi */
+@keyframes rotationEnvoi {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-envoi--loading svg {
+  animation: rotationEnvoi 1s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INDICATEUR DE RÉFLEXION (FIXƆ réfléchit...)
+   */
+
+.indicateur-reflexion {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.reflexion-contenu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.reflexion-texte {
+  color: var(--couleur-texte-secondaire);
+  font-style: italic;
+  font-size: var(--taille-sm);
+}
+
+.reflexion-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.reflexion-dots .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--couleur-accent);
+  border-radius: 50%;
+  animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+.reflexion-dots .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.reflexion-dots .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CURSEUR DE TYPING
+   */
+
+.curseur-typing {
+  display: inline-block;
+  color: var(--couleur-accent);
+  font-weight: bold;
+  animation: cursorBlink 0.8s ease-in-out infinite;
+  margin-left: 2px;
+}
+
+@keyframes cursorBlink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Préférence utilisateur : réduire les animations */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

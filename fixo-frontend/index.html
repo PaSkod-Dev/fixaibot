@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FIXƆ - L'assistant IA de dépannage informatique pour l'Université de Lomé" />
+    <title>FIXƆ - Assistant de Dépannage Informatique</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo-fixo.svg" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link rel="stylesheet" href="styles/help.css" />
+    <link rel="stylesheet" href="styles/themes/light.css" />
+    <link rel="stylesheet" href="styles/themes/dark.css" />
+    <link rel="stylesheet" href="styles/premium.css" />
+    <link rel="stylesheet" href="styles/bienvenue.css" />
+    <link rel="stylesheet" href="styles/scroll-behavior.css" />
+    <link rel="stylesheet" href="styles/markdown.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
+
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- Conteneur principal du chat -->
+    <div class="chat-container">
+      <!-- En-tête -->
+      <header class="chat-container__header">
+        <div class="flex flex--espace-entre flex--centre">
+          <div class="flex flex--centre flex--gap" style="gap: var(--espace-3)">
+            <!-- Logo FIXƆ avec effet premium -->
+            <div
+              class="message__avatar header-avatar"
+              style="width: 52px; height: 52px; position: relative">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 8V4H8" />
+                <rect width="16" height="12" x="4" y="8" rx="2" />
+                <path d="M2 14h2" />
+                <path d="M20 14h2" />
+                <path d="M15 13v2" />
+                <path d="M9 13v2" />
+              </svg>
+            </div>
+            <div>
+              <h1
+                style="
+                  margin: 0;
+                  font-size: var(--taille-2xl);
+                  color: white;
+                  font-weight: var(--poids-bold);
+                  letter-spacing: -0.5px;
+                  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                ">
+                FIX<span style="color: var(--couleur-accent)">Ɔ</span>
+              </h1>
+              <p
+                style="
+                  margin: 0;
+                  font-size: var(--taille-sm);
+                  opacity: 0.95;
+                  margin-top: 2px;
+                  font-weight: var(--poids-medium);
+                ">
+                Assistant de dépannage informatique
+              </p>
+            </div>
+          </div>
+
+          <!-- Actions de l'en-tête avec style premium -->
+          <div class="flex flex--centre flex--gap" style="gap: var(--espace-2)">
+            <button
+              class="bouton bouton--fantome btn-header"
+              id="btn-theme"
+              aria-label="Changer le thème">
+              <svg
+                class="icon-sun"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
+              </svg>
+              <svg
+                class="icon-moon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="display: none">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+            </button>
+            <button
+              class="bouton bouton--fantome btn-header"
+              id="btn-parametres"
+              aria-label="Paramètres">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Zone principale de chat -->
+      <main
+        class="chat-container__messages"
+        id="zone-messages"
+        role="log"
+        aria-live="polite"
+        aria-label="Messages de conversation">
+        <!-- Message de bienvenue premium avec icônes SVG -->
+        <div class="message message--assistant" id="message-bienvenue">
+          <div class="message__avatar">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 8V4H8" />
+              <rect width="16" height="12" x="4" y="8" rx="2" />
+              <path d="M2 14h2" />
+              <path d="M20 14h2" />
+              <path d="M15 13v2" />
+              <path d="M9 13v2" />
+            </svg>
+          </div>
+          <div class="message__contenu">
+            <div class="message__bulle message__bulle--bienvenue">
+              <!-- Effet shimmer -->
+              <div class="shimmer-effect"></div>
+
+              <div class="bienvenue-content">
+                <!-- En-tête avec icône -->
+                <div class="bienvenue-header">
+                  <div class="bienvenue-icon">
+                    <svg
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path
+                        d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                      <path d="M5 3v4" />
+                      <path d="M19 17v4" />
+                      <path d="M3 5h4" />
+                      <path d="M17 19h4" />
+                    </svg>
+                  </div>
+                  <div class="bienvenue-titre">
+                    <h2>
+                      Bienvenue sur <span class="titre-accent">FIXƆ</span>
+                    </h2>
+                    <p class="sous-titre">
+                      Votre assistant intelligent de dépannage informatique
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="bienvenue-description">
+                  <svg
+                    class="inline-icon"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M8 12h8" />
+                    <path d="m12 8 4 4-4 4" />
+                  </svg>
+                  Je suis là pour résoudre vos problèmes techniques
+                  <strong>rapidement</strong> et <strong>efficacement</strong>.
+                </p>
+
+                <!-- Catégories en grille -->
+                <div class="categories-grid">
+                  <div class="categorie-card">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                      <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                      <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                      <line x1="12" x2="12.01" y1="20" y2="20" />
+                    </svg>
+                    <span>Réseau & Wi-Fi</span>
+                  </div>
+                  <div class="categorie-card">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect width="20" height="14" x="2" y="3" rx="2" />
+                      <line x1="8" x2="16" y1="21" y2="21" />
+                      <line x1="12" x2="12" y1="17" y2="21" />
+                    </svg>
+                    <span>Système</span>
+                  </div>
+                  <div class="categorie-card">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="22" x2="2" y1="12" y2="12" />
+                      <path
+                        d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+                      <line x1="6" x2="6.01" y1="16" y2="16" />
+                      <line x1="10" x2="10.01" y1="16" y2="16" />
+                    </svg>
+                    <span>Matériel</span>
+                  </div>
+                  <div class="categorie-card">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    <span>Logiciels</span>
+                  </div>
+                </div>
+
+                <!-- Call to action -->
+                <div class="bienvenue-cta">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                  <span
+                    >Décrivez votre problème et je vous guide étape par
+                    étape</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="message__meta">
+              <span class="message__heure" id="heure-bienvenue"></span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Barre de saisie -->
+      <footer class="chat-container__input">
+        <div class="input-bar" id="input-bar">
+          <textarea
+            class="input-bar__champ"
+            id="champ-message"
+            placeholder="Décrivez votre problème ici..."
+            rows="1"
+            aria-label="Zone de saisie de message"></textarea>
+          <div class="input-bar__actions">
+            <button
+              class="input-bar__bouton"
+              id="btn-envoyer"
+              aria-label="Envoyer le message"
+              disabled>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m22 2-7 20-4-9-9-4Z" />
+                <path d="M22 2 11 13" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Indicateur de mode actif avec badge premium -->
+        <div class="mode-indicator-wrapper">
+          <div class="mode-indicator">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+            </svg>
+            <span>Mode : <strong id="mode-actif">FIXƆ Lite</strong></span>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Bouton Scroll to Bottom -->
+      <button
+        class="scroll-to-bottom-btn"
+        id="btn-scroll-bottom"
+        aria-label="Défiler vers le bas">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m7 13 5 5 5-5" />
+          <path d="m7 6 5 5 5-5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Modal de Confirmation -->
+    <div
+      class="modal-overlay modal-overlay--confirm"
+      id="modal-confirmation"
+      aria-hidden="true">
+      <div
+        class="modal modal--confirm"
+        role="alertdialog"
+        aria-labelledby="confirm-titre"
+        aria-describedby="confirm-message"
+        aria-modal="true">
+        <div class="modal-confirm__icon" id="confirm-icon">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M3 6h18" />
+            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+            <line x1="10" x2="10" y1="11" y2="17" />
+            <line x1="14" x2="14" y1="11" y2="17" />
+          </svg>
+        </div>
+        <h3 class="modal-confirm__titre" id="confirm-titre">
+          Confirmer la suppression
+        </h3>
+        <p class="modal-confirm__message" id="confirm-message">
+          Êtes-vous sûr de vouloir effacer tout l'historique des conversations ?
+          Cette action est irréversible.
+        </p>
+        <div class="modal-confirm__actions">
+          <button
+            class="modal-confirm__btn modal-confirm__btn--annuler"
+            id="confirm-annuler">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+            Annuler
+          </button>
+          <button
+            class="modal-confirm__btn modal-confirm__btn--confirmer"
+            id="confirm-ok">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 6h18" />
+              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+              <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+            </svg>
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Paramètres -->
+    <div class="modal-overlay" id="modal-parametres" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-labelledby="modal-titre"
+        aria-modal="true">
+        <!-- Header du modal -->
+        <div class="modal__header">
+          <h2 id="modal-titre" class="modal__titre">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            Paramètres
+          </h2>
+          <button
+            class="modal__fermer"
+            id="btn-fermer-modal"
+            aria-label="Fermer">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Contenu du modal -->
+        <div class="modal__contenu">
+          <!-- Section Mode -->
+          <div class="parametre-section">
+            <h3 class="parametre-section__titre">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+              </svg>
+              Mode d'assistance
+            </h3>
+            <p class="parametre-section__description">
+              Choisissez le niveau d'assistance de FIXƆ
+            </p>
+            <div class="parametre-options" id="options-mode">
+              <label class="parametre-option">
+                <input type="radio" name="mode" value="lite" checked />
+                <span class="parametre-option__carte">
+                  <span class="parametre-option__nom">FIXƆ Lite</span>
+                  <span class="parametre-option__desc"
+                    >Réponses rapides basées sur une base de connaissances
+                    locale</span
+                  >
+                </span>
+              </label>
+              <label class="parametre-option">
+                <input type="radio" name="mode" value="core" />
+                <span class="parametre-option__carte">
+                  <span class="parametre-option__nom">FIXƆ Core</span>
+                  <span class="parametre-option__desc"
+                    >Intelligence artificielle pour des solutions
+                    personnalisées</span
+                  >
+                </span>
+              </label>
+              <label class="parametre-option">
+                <input type="radio" name="mode" value="pro" />
+                <span class="parametre-option__carte">
+                  <span class="parametre-option__nom">FIXƆ Pro</span>
+                  <span class="parametre-option__desc"
+                    >Assistance avancée avec accès à des outils
+                    professionnels</span
+                  >
+                  <span class="parametre-option__badge">Bientôt</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Section Configuration API (pour Mode Core) -->
+          <div class="parametre-section" id="section-api">
+            <h3 class="parametre-section__titre">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                <polyline points="10 17 15 12 10 7" />
+                <line x1="15" x2="3" y1="12" y2="12" />
+              </svg>
+              Configuration API (Mode Core)
+            </h3>
+            <p class="parametre-section__description">
+              Entrez votre clé API gratuite pour activer l'IA
+            </p>
+            <div class="parametre-api-config">
+              <select id="select-api" class="parametre-select">
+                <option value="groq">Groq (Recommandé - Gratuit)</option>
+                <option value="gemini">Google Gemini (Gratuit)</option>
+                <option value="huggingface">Hugging Face (Gratuit)</option>
+              </select>
+              <div class="parametre-input-group">
+                <input
+                  type="password"
+                  id="input-api-key"
+                  class="parametre-input"
+                  placeholder="Collez votre clé API ici..." />
+                <button id="btn-sauvegarder-api" class="parametre-btn-save">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                      d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                    <polyline points="17 21 17 13 7 13 7 21" />
+                    <polyline points="7 3 7 8 15 8" />
+                  </svg>
+                  Sauvegarder
+                </button>
+              </div>
+              <p class="parametre-api-help">
+                <a
+                  href="https://console.groq.com"
+                  target="_blank"
+                  rel="noopener">
+                  → Obtenir une clé Groq gratuite
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Section Thème -->
+          <div class="parametre-section">
+            <h3 class="parametre-section__titre">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
+              </svg>
+              Apparence
+            </h3>
+            <p class="parametre-section__description">
+              Personnalisez l'apparence de l'interface
+            </p>
+            <div class="parametre-toggle-group" id="options-theme">
+              <button class="parametre-toggle" data-theme="light">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2" />
+                  <path d="M12 20v2" />
+                  <path d="m4.93 4.93 1.41 1.41" />
+                  <path d="m17.66 17.66 1.41 1.41" />
+                  <path d="M2 12h2" />
+                  <path d="M20 12h2" />
+                  <path d="m6.34 17.66-1.41 1.41" />
+                  <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                Clair
+              </button>
+              <button class="parametre-toggle active" data-theme="dark">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+                Sombre
+              </button>
+              <button class="parametre-toggle" data-theme="auto">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect width="20" height="14" x="2" y="3" rx="2" />
+                  <line x1="8" x2="16" y1="21" y2="21" />
+                  <line x1="12" x2="12" y1="17" y2="21" />
+                </svg>
+                Auto
+              </button>
+            </div>
+          </div>
+
+          <!-- Section Actions -->
+          <div class="parametre-section">
+            <h3 class="parametre-section__titre">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 6h18" />
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+              </svg>
+              Données
+            </h3>
+            <p class="parametre-section__description">
+              Gérez vos données de conversation
+            </p>
+            <button
+              class="parametre-action parametre-action--danger"
+              id="btn-effacer-historique">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 6h18" />
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                <line x1="10" x2="10" y1="11" y2="17" />
+                <line x1="14" x2="14" y1="11" y2="17" />
+              </svg>
+              Effacer l'historique
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer du modal -->
+        <div class="modal__footer">
+          <p class="modal__version">
+            FIX<span style="color: var(--couleur-accent)">Ɔ</span> v1.0.0 —
+            Assistant de dépannage informatique
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <!-- Application principale -->
+    <script type="module" src="scripts/app.js"></script>
+
+    <!-- Indicateur de chargement -->
+    <div
+      id="loader-app"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--couleur-fond);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      ">
+      <div style="text-align: center">
+        <div
+          style="
+            width: 40px;
+            height: 40px;
+            border: 4px solid #edf2f7;
+            border-top-color: #d4af37;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+          "></div>
+        <p style="color: #718096; font-family: Arial, sans-serif">
+          Chargement de FIXƆ...
+        </p>
+        <p
+          id="loader-status"
+          style="
+            color: #a0aec0;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            font-family: Arial, sans-serif;
+          "></p>
+      </div>
+    </div>
+
+    <style>
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Scripts d'initialisation -->
+    <script>
+      // Fonction pour mettre à jour le statut du loader
+      function updateLoaderStatus(message) {
+        const statusEl = document.getElementById("loader-status");
+        if (statusEl) {
+          statusEl.textContent = message;
+        }
+        console.log("📊 Loader:", message);
+      }
+
+      // Fonction pour masquer le loader
+      function hideLoader() {
+        const loader = document.getElementById("loader-app");
+        if (loader) {
+          loader.style.opacity = "0";
+          loader.style.transition = "opacity 0.3s";
+          setTimeout(() => loader.remove(), 300);
+        }
+      }
+
+      // Timeout de sécurité - masquer le loader après 10 secondes max
+      setTimeout(() => {
+        const loader = document.getElementById("loader-app");
+        if (loader && loader.style.display !== "none") {
+          console.warn("⚠️ Timeout: Le chargement prend trop de temps");
+          updateLoaderStatus("Chargement lent... Vérifiez la console (F12)");
+        }
+      }, 10000);
+
+      // Gestion globale des erreurs
+      window.addEventListener("error", (e) => {
+        console.error("❌ Erreur globale:", e);
+        updateLoaderStatus("Erreur détectée - Voir la console (F12)");
+
+        const loader = document.getElementById("loader-app");
+        if (loader) {
+          setTimeout(() => {
+            loader.innerHTML = `
+            <div style="text-align: center; padding: 2rem; max-width: 600px;">
+              <h2 style="color: #E74C3C; margin-bottom: 1rem; font-family: Arial, sans-serif;">Erreur de chargement</h2>
+              <p style="color: #718096; margin-bottom: 1rem; font-family: Arial, sans-serif;">${
+                e.message || "Erreur inconnue"
+              }</p>
+              <p style="color: #A0AEC0; font-size: 0.875rem; margin-bottom: 1.5rem; font-family: Arial, sans-serif;">Ouvrez la console (F12) pour plus de détails</p>
+              <button onclick="location.reload()" style="padding: 0.75rem 1.5rem; background: #1a365d; color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; margin: 0.5rem; font-family: Arial, sans-serif;">Recharger</button>
+              <button onclick="window.open('test-chargement.html', '_blank')" style="padding: 0.75rem 1.5rem; background: #3498DB; color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; margin: 0.5rem; font-family: Arial, sans-serif;">Tester les fichiers</button>
+            </div>
+          `;
+          }, 2000);
+        }
+      });
+
+      // Initialiser les icônes Lucide quand disponible
+      document.addEventListener("DOMContentLoaded", () => {
+        updateLoaderStatus("Initialisation...");
+
+        if (typeof lucide !== "undefined") {
+          lucide.createIcons();
+          updateLoaderStatus("Icônes chargées");
+        }
+
+        // Afficher l'heure du message de bienvenue
+        const heureBienvenue = document.getElementById("heure-bienvenue");
+        if (heureBienvenue) {
+          const maintenant = new Date();
+          heureBienvenue.textContent = maintenant.toLocaleTimeString("fr-FR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
